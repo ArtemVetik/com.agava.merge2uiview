@@ -1,0 +1,27 @@
+{
+  "name": "com.agava.merge2uiview",
+  "version": "1.0.0",
+  "displayName": "Merge2 UI View",
+  "unity": "2021.3",
+  "description": "Template for merge2 UI view.",
+  "keywords": [
+    "merge2",
+    "template"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArtemVetik/com.agava.merge2uiview.git"
+  },
+  "license": "MIT",
+  "samples": [
+    {
+      "displayName": "Default Sample",
+      "description": "Contains default game sample.",
+      "path": "Samples~/Default"
+    }
+  ],
+  "dependencies": {
+	  "com.agava.merge2": "1.0.0",
+	  "com.yellowsquad.assetpath": "1.0.1"
+  }
+}

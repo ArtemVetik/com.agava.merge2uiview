@@ -1,0 +1,19 @@
+{
+    "name": "Agava.Merge2UIView.Editor",
+    "rootNamespace": "Agava.Merge2UIView.Editor",
+    "references": [
+        "GUID:1904d984aa3232b41ab8c62228a7c47d",
+        "GUID:473742aa293161d4f83aca1e5f2cce70"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

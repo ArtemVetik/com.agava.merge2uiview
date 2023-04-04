@@ -1,0 +1,19 @@
+using Agava.Merge2.Core;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Agava.Merge2UIView
+{
+    public class ItemPresenter : MonoBehaviour
+    {
+        [SerializeField] private Image _iconImage;
+
+        public Item Model { get; private set; }
+
+        internal void Init(Item item, Sprite icon)
+        {
+            Model = item;
+            _iconImage.sprite = icon;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e42f5e2018a594ebcef27a55e50b5d, type: 3}
+  m_Name: BoardSetupFactory
+  m_EditorClassIdentifier: 
+  _shapeFactory: {fileID: 11400000, guid: acfc4344e184c9942a74d1d0f99f879e, type: 2}
+  _contourAlgorithmFactory: {fileID: 11400000, guid: 988d0a5d73ba56748816e8191a5f3043, type: 2}
+  _items:
+  - Position: {x: 2, y: 5}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 4, y: 5}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 2, y: 3}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 3, y: 5}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 2, y: 4}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 3, y: 3}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 4, y: 4}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 2, y: 6}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 1, y: 5}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 1, y: 3}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 2, y: 2}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 4, y: 2}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 5, y: 3}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 5, y: 5}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 4, y: 6}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 1
+  - Position: {x: 3, y: 4}
+    <Id>k__BackingField: Item1
+    <Level>k__BackingField: 0
+  - Position: {x: 4, y: 3}
+    <Id>k__BackingField: Item3
+    <Level>k__BackingField: 0
+  _openedPositions:
+  - {x: 2, y: 5}
+  - {x: 2, y: 3}
+  - {x: 4, y: 3}
+  - {x: 4, y: 5}
+  - {x: 3, y: 4}
+  _addItemId: Item3
+  _addItemLevel: 0

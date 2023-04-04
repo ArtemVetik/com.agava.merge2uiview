@@ -1,0 +1,20 @@
+{
+    "name": "Agava.Merge2UIView.Samples",
+    "rootNamespace": "Agava.Merge2UIView.Samples",
+    "references": [
+        "Agava.Merge2UIView",
+        "Agava.Merge2",
+        "Unity.TextMeshPro",
+        "DOTween.Modules",
+        "YellowSquad.AssetPath"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
