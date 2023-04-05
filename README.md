@@ -33,3 +33,11 @@ Paste this: `https://github.com/ArtemVetik/com.agava.merge2uiview.git#1.0.0`
 See minimum required Unity version in the `package.json` file.
 
 This project can also be installed through OpenUPM, [here.](https://openupm.com/packages/com.agava.merge2uiview/)
+
+### Where to go next?
+* [Wiki](https://github.com/ArtemVetik/com.agava.merge2uiview/wiki)
+
+## Authors
+
+- [@ArtemVetik](https://www.github.com/ArtemVetik)
+- [@mdlka](https://www.github.com/mdlka)
