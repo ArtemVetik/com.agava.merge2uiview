@@ -9,5 +9,6 @@ namespace Agava.Merge2UIView
         BoardView BoardView { get; }
         SelectedItem SelectedItem { get; }
         CommandFilter CommandFilter { get; }
+        OpenedItemList OpenedItemList { get; }
     }
 }

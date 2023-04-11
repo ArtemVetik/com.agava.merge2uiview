@@ -1,31 +1,61 @@
 using Agava.Merge2.Core;
 using Agava.Merge2.Tasks;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Agava.Merge2UIView.Samples
 {
     public class ExampleTaskFactory : MonoBehaviour
     {
-        [SerializeField] private Object _taskRootObject;
+        [SerializeField] private MonoBehaviour _mergeRootObject;
+        [SerializeField] private MonoBehaviour _taskRootObject;
+
+        private IMergeRoot _mergeRoot;
+        private ITaskListRoot _taskRoot;
 
         private void OnValidate()
         {
+            if (_mergeRootObject is not IMergeRoot)
+                _mergeRootObject = null;
+
             if (_taskRootObject is not ITaskListRoot)
                 _taskRootObject = null;
         }
 
-        private IEnumerator Start()
+        private void Start()
         {
-            var taskRoot = _taskRootObject as ITaskListRoot;
+            _mergeRoot = _mergeRootObject as IMergeRoot;
+            _taskRoot = _taskRootObject as ITaskListRoot;
+        }
 
-            yield return new WaitUntil(() => taskRoot.Initialized);
+        private void Update()
+        {
+            if (_taskRoot.Initialized == false)
+                return;
 
-            if (taskRoot.TaskList.Count == 0)
+            if (_taskRoot.TaskList.Count == 0)
             {
-                taskRoot.TaskList.Add(new Task(new[] { new Item("Item1", 1), new Item("Item1", 2) }));
-                taskRoot.TaskList.Add(new Task(new[] { new Item("Item1", 2), new Item("Item2", 1), new Item("Item3", 1) }));
+                int taskCount = Random.Range(1, 3);
+
+                for (int i = 0; i < taskCount; i++)
+                    AddRandomTask();
             }
+        }
+
+        private void AddRandomTask()
+        {
+            var aviableItems = _mergeRoot.OpenedItemList.OpenedItems
+                                                .Where(item => _mergeRoot.CommandFilter.FilteredId.Contains(item.Id) == false)
+                                                .ToArray();
+
+            var items = new HashSet<Item>();
+            int itemCount = Random.Range(1, 3);
+
+            for (int i = 0; i < itemCount; i++)
+                items.Add(aviableItems[Random.Range(0, aviableItems.Length)]);
+
+            _taskRoot.TaskList.Add(new Task(items.ToArray()));
         }
     }
 }

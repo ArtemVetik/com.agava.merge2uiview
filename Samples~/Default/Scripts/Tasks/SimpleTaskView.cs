@@ -12,9 +12,11 @@ namespace Agava.Merge2UIView.Samples
     {
         [SerializeField] private Button _completeButton;
         [SerializeField] private TMP_Text _info;
+        [SerializeField] private TMP_Text _rewardText;
 
         private Task _task;
-        private TaskProgress _taskProgress;
+        private TaskReward _reward;
+        private TaskProgress _progress;
         private Action<TaskView> _completeClicked;
 
         public override Task Model => _task;
@@ -29,17 +31,18 @@ namespace Agava.Merge2UIView.Samples
             _completeButton.onClick.RemoveListener(OnCompleteButtonClicked);
         }
 
-        public override void Init(Task task, TaskProgress progress, Action<TaskView> completeClicked)
+        public override void Init(Task task, TaskReward reward, TaskProgress progress, Action<TaskView> completeClicked)
         {
             _task = task;
-            _taskProgress = progress;
+            _reward = reward;
+            _progress = progress;
             _completeClicked = completeClicked;
         }
 
         public override void Render()
         {
-            _taskProgress.Compute(_task);
-            var requiredItems = _taskProgress.RequiredItems;
+            _progress.Compute(_task);
+            var requiredItems = _progress.RequiredItems;
             _info.text = string.Empty;
 
             var text = new StringBuilder();
@@ -54,6 +57,8 @@ namespace Agava.Merge2UIView.Samples
             }
 
             _info.text = text.ToString();
+
+            _rewardText.text = $"Reward: {_reward.RewardValue(_task)}";
         }
 
         private void OnCompleteButtonClicked()

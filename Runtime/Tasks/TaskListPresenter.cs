@@ -15,14 +15,14 @@ namespace Agava.Merge2UIView
         private readonly TaskList _taskList;
         private readonly JsonTaskListSave _taskListSave;
 
-        internal TaskListPresenter(IBoard board, IJsonSaveRepository saveRepository, TaskViewFactory viewFactory, BoardView boardView)
+        internal TaskListPresenter(IBoard board, IJsonSaveRepository saveRepository, TaskReward taskReward, TaskViewFactory viewFactory, BoardView boardView)
         {
             _board = board;
             _viewFactory = viewFactory;
             _boardView = boardView;
 
             _taskListSave = new JsonTaskListSave(saveRepository);
-            _taskList = _taskListSave.Load(_board);
+            _taskList = _taskListSave.Load(_board, taskReward);
             _taskView = new List<TaskView>();
 
             foreach (var task in _taskList.Tasks)

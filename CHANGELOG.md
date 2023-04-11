@@ -5,19 +5,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 
 
-## [Unreleased]
-
-### Breaking Changes
+## [1.1.0] - 2023-04-11
 
 ### Added
 
+- List of all ids that have a ClickCommand.
+- Add the `RewardValueFactory` class to create an instance of the `IRewardValue` type.
+
 ### Changed
 
-### Removed
+- Now the package requires a dependency on `com.agava.merge2` version `1.1.0`.
+- `OpenedItemList` is now public.
+- `ExampleTaskFactory` has been completely redesigned and automatically adds tasks to the list.
+- Two fields have been added to the `TaskRoot` class of tasks to initialize task rewards.
+- Add the `TaskReward` argument to the `TaskView.Init()` method.
 
 ### Fixed
 
-
+- Year in LICENSE.md.
 
 ## [1.0.0] - 2023-04-04
 

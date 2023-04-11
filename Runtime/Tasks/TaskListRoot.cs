@@ -10,6 +10,8 @@ namespace Agava.Merge2UIView
         [SerializeField] private MonoBehaviour _mergeRootObject;
         [SerializeField] private TaskView _viewTemplate;
         [SerializeField] private Transform _viewContainer;
+        [SerializeField] private RewardValueFactory _rewardValue;
+        [SerializeField] private MonoBehaviour _rewardCurrencyObject;
 
         private IMergeRoot _mergeRoot;
 
@@ -20,6 +22,9 @@ namespace Agava.Merge2UIView
         {
             if (_mergeRootObject is not IMergeRoot)
                 _mergeRootObject = null;
+
+            if (_rewardCurrencyObject is not IRewardCurrency)
+                _rewardCurrencyObject = null;
         }
 
         private IEnumerator Start()
@@ -29,9 +34,10 @@ namespace Agava.Merge2UIView
             yield return new WaitUntil(() => _mergeRoot.Initialized);
 
             var taskProgress = new TaskProgress(_mergeRoot.Board);
-            var viewFactory = new TaskViewFactory(_viewTemplate, _viewContainer, taskProgress);
+            var reward = new TaskReward(_rewardCurrencyObject as IRewardCurrency, _rewardValue.Create());
+            var viewFactory = new TaskViewFactory(_viewTemplate, _viewContainer, reward, taskProgress);
 
-            TaskList = new TaskListPresenter(_mergeRoot.Board, new PlayerPrefsRepository(_saveKey), viewFactory, _mergeRoot.BoardView);
+            TaskList = new TaskListPresenter(_mergeRoot.Board, new PlayerPrefsRepository(_saveKey), reward, viewFactory, _mergeRoot.BoardView);
             Initialized = true;
         }
 

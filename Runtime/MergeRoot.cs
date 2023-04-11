@@ -36,6 +36,7 @@ namespace Agava.Merge2UIView
         public BoardView BoardView { get; private set; }
         public SelectedItem SelectedItem { get; private set; }
         public CommandFilter CommandFilter { get; private set; }
+        public OpenedItemList OpenedItemList => _openedItemListPresenter.OpenedItemList;
 
         private void Awake()
         {

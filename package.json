@@ -1,6 +1,6 @@
 {
   "name": "com.agava.merge2uiview",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "displayName": "Merge2 UI View",
   "unity": "2021.3",
   "description": "Template for merge2 UI view.",
@@ -21,7 +21,7 @@
     }
   ],
   "dependencies": {
-	  "com.agava.merge2": "1.0.0",
-	  "com.yellowsquad.assetpath": "1.0.1"
+    "com.agava.merge2": "1.1.0",
+    "com.yellowsquad.assetpath": "1.0.1"
   }
 }

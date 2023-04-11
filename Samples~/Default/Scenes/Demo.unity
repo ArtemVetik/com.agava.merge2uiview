@@ -497,6 +497,7 @@ GameObject:
   - component: {fileID: 1093648792}
   - component: {fileID: 1093648791}
   - component: {fileID: 1093648793}
+  - component: {fileID: 1093648794}
   m_Layer: 0
   m_Name: TaskListRoot
   m_TagString: Untagged
@@ -520,6 +521,8 @@ MonoBehaviour:
   _mergeRootObject: {fileID: 1428893320}
   _viewTemplate: {fileID: 4852908626963725979, guid: 863ba1d07b48e014aacb704aa1bb8b2e, type: 3}
   _viewContainer: {fileID: 1277269249}
+  _rewardValue: {fileID: 11400000, guid: bed60fde7795be84d8f38764104b8c6d, type: 2}
+  _rewardCurrencyObject: {fileID: 1093648794}
 --- !u!4 &1093648792
 Transform:
   m_ObjectHideFlags: 0
@@ -547,7 +550,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36041146189e0cf43a0d4c5319c4f083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mergeRootObject: {fileID: 1428893320}
   _taskRootObject: {fileID: 1093648791}
+--- !u!114 &1093648794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093648790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3269b44e24ec3fb42b35c0aa209ae269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1277269248
 GameObject:
   m_ObjectHideFlags: 0
