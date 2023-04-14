@@ -25,6 +25,9 @@ namespace Agava.Merge2UIView
         [SerializeField] private CellPullAnimationFactory _cellPullAnimationFactory;
         [Header("Game Rule")]
         [SerializeField] private ClickRules _gameRules;
+        [Header("Cooldown")]
+        [SerializeField] private CooldownRepositoryFactory _cooldownRepository;
+        [SerializeField] private CooldownView _cooldownView;
         [Header("Click exception view")]
         [SerializeField] private ClickExceptionView _clickExceptionView;
 
@@ -61,6 +64,9 @@ namespace Agava.Merge2UIView
             var cellFactory = new CellFactory(_cellGrid.transform, _cellTemplate, _cellPullAnimationFactory.Create());
             BoardView = new BoardView(Board, itemFactory, cellFactory);
             BoardView.Render(BoardView.Cells[0]);
+
+            _cooldownRepository.Initialize();
+            _cooldownView.Init(BoardView.Cells, _cooldownRepository.Repository);
 
             var movePolicy = new DefaultMovePolicy(Board);
             var mergePolicy = new DefaultMergePolicy(Board, itemsList.Levels());

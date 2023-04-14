@@ -9,18 +9,18 @@ namespace Agava.Merge2UIView
     {
         private readonly ItemPresenter _template;
         private readonly Transform _parent;
-        private readonly IDictionary<string, string[]> _icons;
+        private readonly IDictionary<string, ResourcesReference<Sprite>[]> _icons;
 
-        public ItemFactory(ItemPresenter template, Transform parent, IEnumerable<KeyValuePair<string, string[]>> icons)
+        public ItemFactory(ItemPresenter template, Transform parent, IEnumerable<KeyValuePair<string, ResourcesReference<Sprite>[]>> icons)
         {
             _template = template;
             _parent = parent;
-            _icons = new Dictionary<string, string[]>(icons);
+            _icons = new Dictionary<string, ResourcesReference<Sprite>[]>(icons);
         }
 
         public ItemPresenter Load(Item item)
         {
-            var icon = Resources.Load<Sprite>(new ResourcesPath(_icons[item.Id][item.Level]).Value());
+            var icon = _icons[item.Id][item.Level].Load();
             var inst = Object.Instantiate(_template, _parent);
             inst.Init(item, icon);
 

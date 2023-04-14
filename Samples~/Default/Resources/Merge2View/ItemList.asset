@@ -15,19 +15,31 @@ MonoBehaviour:
   _items:
   - <ID>k__BackingField: Item1
     <Icons>k__BackingField:
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item1_1.png
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item1_2.png
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item1_3.png
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item1_4.png
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item1_5.png
+    - _objectAsset: {fileID: 21300000, guid: cd28a4e7bd2d20e4098053970fb9fe81, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item1_1.png
+    - _objectAsset: {fileID: 21300000, guid: 3f287cb134b0de04a986401ea6225d55, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item1_2.png
+    - _objectAsset: {fileID: 21300000, guid: e3f4ee633adede74abc15340bffb2b82, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item1_3.png
+    - _objectAsset: {fileID: 21300000, guid: 5f8b747040cba6c418f0561e920335e5, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item1_4.png
+    - _objectAsset: {fileID: 21300000, guid: 91d2f0327d9bd444998eba04cf73bd3d, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item1_5.png
   - <ID>k__BackingField: Item2
     <Icons>k__BackingField:
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item2_1.png
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item2_2.png
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item2_3.png
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item2_4.png
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item2_5.png
+    - _objectAsset: {fileID: 21300000, guid: 75a85fa4a654b074c82abd0e4ac1c34d, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item2_1.png
+    - _objectAsset: {fileID: 21300000, guid: c51d63c311dd31543afb5050129dc9ff, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item2_2.png
+    - _objectAsset: {fileID: 21300000, guid: 1667feda14b8146498bcc73a78bc8c08, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item2_3.png
+    - _objectAsset: {fileID: 21300000, guid: 5a4d2d3d78df7db41822bab5b51efa44, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item2_4.png
+    - _objectAsset: {fileID: 21300000, guid: cb3b0c59a5cb4454089231bd937fca85, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item2_5.png
   - <ID>k__BackingField: Item3
     <Icons>k__BackingField:
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item3_1.png
-    - Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item3_2.png
+    - _objectAsset: {fileID: 21300000, guid: c563345b1b7735847a1b023b750d75aa, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item3_1.png
+    - _objectAsset: {fileID: 21300000, guid: c64e335d14321604894b85ac9a41fab2, type: 3}
+      _projectPath: Packages/com.agava.merge2uiview/Samples/Default/Resources/Icons/Item3_2.png

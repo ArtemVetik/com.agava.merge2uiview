@@ -13,7 +13,15 @@ namespace Agava.Merge2UIView
 
         internal (string, IClickCommand)[] ClickCommands(IBoard board)
         {
-            return _items.Select(item => (item.ID, item.ClickCommandFactory.Create(board))).ToArray();
+            var result = new List<(string, IClickCommand)>();
+
+            foreach (var item in _items)
+            {
+                var clickCommand = new CommandQueue(item.ClickCommandsFactory.Select(factory => factory.Create(board)));
+                result.Add((item.ID, clickCommand));
+            }
+
+            return result.ToArray();
         }
 
         internal IEnumerable<KeyValuePair<string, IClickAnimation>> ClickAnimations()
@@ -26,8 +34,8 @@ namespace Agava.Merge2UIView
         internal class ClickItem
         {
             [field: SerializeField, ItemId] public string ID { get; private set; }
-            [field: SerializeField] public ClickCommandFactory ClickCommandFactory { get; private set; }
             [field: SerializeField] public ClickAnimationFactory ClickAnimationFactory { get; private set; }
+            [field: SerializeField] public ClickCommandFactory[] ClickCommandsFactory { get; private set; }
         }
     }
 }

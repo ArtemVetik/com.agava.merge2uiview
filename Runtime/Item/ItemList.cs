@@ -25,16 +25,16 @@ namespace Agava.Merge2UIView
             return _items.Select(item => new KeyValuePair<string, int>(item.ID, item.Icons.Length - 1));
         }
 
-        public IEnumerable<KeyValuePair<string, string[]>> Icons()
+        public IEnumerable<KeyValuePair<string, ResourcesReference<Sprite>[]>> Icons()
         {
-            return _items.Select(item => new KeyValuePair<string, string[]>(item.ID, item.Icons));
+            return _items.Select(item => new KeyValuePair<string, ResourcesReference<Sprite>[]>(item.ID, item.Icons));
         }
 
         [Serializable]
         internal class Item
         {
             [field: SerializeField] public string ID { get; private set; }
-            [field: SerializeField] [field: AssetPath(typeof(Sprite))] public string[] Icons { get; private set; }
+            [field: SerializeField] public ResourcesReference<Sprite>[] Icons { get; private set; }
         }
     }
 }

@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - <ID>k__BackingField: Item2
-    <ClickCommandFactory>k__BackingField: {fileID: 11400000, guid: 78cf639387022124aa4c65ff3eac9bf9, type: 2}
     <ClickAnimationFactory>k__BackingField: {fileID: 0}
+    <ClickCommandsFactory>k__BackingField:
+    - {fileID: 11400000, guid: 78cf639387022124aa4c65ff3eac9bf9, type: 2}
   - <ID>k__BackingField: Item3
-    <ClickCommandFactory>k__BackingField: {fileID: 11400000, guid: 8eb324766a9e31c48868a83478e0b491, type: 2}
     <ClickAnimationFactory>k__BackingField: {fileID: 11400000, guid: 4c02825546c74ab4087cb64b0f806bfe, type: 2}
+    <ClickCommandsFactory>k__BackingField:
+    - {fileID: 11400000, guid: b3f511abba726be43aa4e2f5a9572ceb, type: 2}
+    - {fileID: 11400000, guid: 8eb324766a9e31c48868a83478e0b491, type: 2}

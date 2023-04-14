@@ -14,7 +14,7 @@ namespace Agava.Merge2UIView.Samples
         [SerializeField] private Transform _itemGroupContainer;
         [SerializeField] private Button _closeButton;
 
-        private Dictionary<string, string[]> _icons;
+        private Dictionary<string, ResourcesReference<Sprite>[]> _icons;
         private OpenedItemList _openedItemList;
 
         private void OnEnable()
@@ -30,7 +30,7 @@ namespace Agava.Merge2UIView.Samples
         public override void Render(Item item, ItemProduceInfo.IResult produceInfo, OpenedItemList openedItemList)
         {
             var itemList = new ItemListResource().Load();
-            _icons = new Dictionary<string, string[]>(itemList.Icons());
+            _icons = new Dictionary<string, ResourcesReference<Sprite>[]>(itemList.Icons());
             _openedItemList = openedItemList;
 
             SpawnItemsGroup($"Level {item.Level + 1}", AllItemsWith(item.Id, _icons[item.Id].Length), item.Level);
@@ -47,7 +47,7 @@ namespace Agava.Merge2UIView.Samples
 
             foreach (var item in items)
                 icons.Add(_openedItemList.OpenedItems.Contains(item) == false ? _nullableItemIcon
-                    : Resources.Load<Sprite>(new ResourcesPath(_icons[item.Id][item.Level]).Value()));
+                    : _icons[item.Id][item.Level].Load());
 
             var spawnedGroup = Instantiate(_itemGroupTemplate, _itemGroupContainer);
             spawnedGroup.Render(label, icons.ToArray(), selectedIndex);
