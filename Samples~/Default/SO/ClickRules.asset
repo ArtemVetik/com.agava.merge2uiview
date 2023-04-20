@@ -16,6 +16,7 @@ MonoBehaviour:
   - <ID>k__BackingField: Item2
     <ClickAnimationFactory>k__BackingField: {fileID: 0}
     <ClickCommandsFactory>k__BackingField:
+    - {fileID: 11400000, guid: 321a16b7b92aae140b1633c6c51c5172, type: 2}
     - {fileID: 11400000, guid: 78cf639387022124aa4c65ff3eac9bf9, type: 2}
   - <ID>k__BackingField: Item3
     <ClickAnimationFactory>k__BackingField: {fileID: 11400000, guid: 4c02825546c74ab4087cb64b0f806bfe, type: 2}

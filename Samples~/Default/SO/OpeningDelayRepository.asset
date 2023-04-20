@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630124c15d7efc54eb92d332a8cfd553, type: 3}
+  m_Name: OpeningDelayRepository
+  m_EditorClassIdentifier: 
+  _saveKey: TestOpeningDelaySaveKey
+  _settings:
+  - <ItemID>k__BackingField: Item2
+    <ItemLevel>k__BackingField: 0
+    <DelaySeconds>k__BackingField: 2
+  - <ItemID>k__BackingField: Item2
+    <ItemLevel>k__BackingField: 1
+    <DelaySeconds>k__BackingField: 3
+  - <ItemID>k__BackingField: Item2
+    <ItemLevel>k__BackingField: 2
+    <DelaySeconds>k__BackingField: 4
+  - <ItemID>k__BackingField: Item2
+    <ItemLevel>k__BackingField: 3
+    <DelaySeconds>k__BackingField: 5
+  - <ItemID>k__BackingField: Item2
+    <ItemLevel>k__BackingField: 4
+    <DelaySeconds>k__BackingField: 6
+  - <ItemID>k__BackingField: Item2
+    <ItemLevel>k__BackingField: 5
+    <DelaySeconds>k__BackingField: 7
+  _timeProvider: {fileID: 0}

@@ -17,7 +17,7 @@ namespace Agava.Merge2UIView
 
             foreach (var item in _items)
             {
-                var clickCommand = new CommandQueue(item.ClickCommandsFactory.Select(factory => factory.Create(board)));
+                var clickCommand = new CommandQueue(item.ClickCommandsFactory.Select(factory => factory.Create(board)).ToArray());
                 result.Add((item.ID, clickCommand));
             }
 

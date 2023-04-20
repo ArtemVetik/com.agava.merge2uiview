@@ -1,4 +1,5 @@
 using Agava.Merge2.Core;
+using System;
 using UnityEngine;
 
 namespace Agava.Merge2UIView
@@ -10,6 +11,9 @@ namespace Agava.Merge2UIView
 
         public override IClickCommand Create(IBoard board)
         {
+            if (_cooldownRepository.Initialized == false)
+                _cooldownRepository.Initialize();
+
             return new CooldownCommand(board, _cooldownRepository.Repository);
         }
     }

@@ -1,49 +1,41 @@
 using Agava.Merge2.Tasks;
-using System.Collections;
 using UnityEngine;
 
 namespace Agava.Merge2UIView
 {
-    internal class TaskListRoot : MonoBehaviour, ITaskListRoot
+    internal class TaskListRoot : CompositeRoot, ITaskListRoot
     {
         [SerializeField] private string _saveKey;
-        [SerializeField] private MonoBehaviour _mergeRootObject;
         [SerializeField] private TaskView _viewTemplate;
         [SerializeField] private Transform _viewContainer;
         [SerializeField] private RewardValueFactory _rewardValue;
         [SerializeField] private MonoBehaviour _rewardCurrencyObject;
-
-        private IMergeRoot _mergeRoot;
 
         public bool Initialized { get; private set; } = false;
         public TaskListPresenter TaskList { get; private set; }
 
         private void OnValidate()
         {
-            if (_mergeRootObject is not IMergeRoot)
-                _mergeRootObject = null;
-
             if (_rewardCurrencyObject is not IRewardCurrency)
                 _rewardCurrencyObject = null;
         }
 
-        private IEnumerator Start()
+        private void OnDestroy()
         {
-            _mergeRoot = _mergeRootObject as IMergeRoot;
+            if (Initialized == false)
+                return;
 
-            yield return new WaitUntil(() => _mergeRoot.Initialized);
+            TaskList?.Dispose();
+        }
 
-            var taskProgress = new TaskProgress(_mergeRoot.Board);
+        public override void Compose(IMergeRoot mergeRoot)
+        {
+            var taskProgress = new TaskProgress(mergeRoot.Board);
             var reward = new TaskReward(_rewardCurrencyObject as IRewardCurrency, _rewardValue.Create());
             var viewFactory = new TaskViewFactory(_viewTemplate, _viewContainer, reward, taskProgress);
 
-            TaskList = new TaskListPresenter(_mergeRoot.Board, new PlayerPrefsRepository(_saveKey), reward, viewFactory, _mergeRoot.BoardView);
+            TaskList = new TaskListPresenter(mergeRoot.Board, new PlayerPrefsRepository(_saveKey), reward, viewFactory, mergeRoot.BoardView);
             Initialized = true;
-        }
-
-        private void OnDestroy()
-        {
-            TaskList?.Dispose();
         }
     }
 }
