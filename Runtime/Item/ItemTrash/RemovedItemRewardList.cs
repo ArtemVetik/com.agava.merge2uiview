@@ -20,7 +20,7 @@ namespace Agava.Merge2UIView
         }
 #endif
 
-        internal int RewardBy(Item item)
+        public int RewardBy(Item item)
         {
             _itemsWithReward ??= ConvertItemsToDictionary();
             

@@ -1,5 +1,7 @@
 ﻿using System;
+#if USE_DOTWEEN
 using DG.Tweening;
+#endif
 using UnityEngine;
 
 namespace Agava.Merge2UIView.Samples
