@@ -38,9 +38,11 @@ namespace Agava.Merge2UIView
                 return;
 
             var target = eventData.pointerCurrentRaycast.gameObject;
-
+            
             if (target != null && target.TryGetComponent(out BoardCell to))
                 _input.EndDrag(_cell, to);
+            else if (target != null && target.TryGetComponent(out InventoryZone inventory) && inventory.HasFreePlace)
+                inventory.Add(_cell);
             else
                 _input.EndDrag(_cell);
         }

@@ -12,16 +12,18 @@ namespace Agava.Merge2UIView
         private readonly BoardView _boardView;
         private readonly RemoveItemRule _removeItemRule;
         private readonly IRemoveItemAnimation _removeItemAnimation;
+        private readonly IRestoreItemAnimation _restoreItemAnimation;
         
         private BoardCell _lastRemovedItemCell;
         private Item _lastRemovedItem;
 
-        internal ItemTrash(RemoveItemRule removeItemRule, IRemoveItemAnimation removeItemAnimation, IBoard board, BoardView boardView)
+        internal ItemTrash(RemoveItemRule removeItemRule, ItemAnimationFactory itemAnimationFactory, IBoard board, BoardView boardView)
         {
             _board = board;
             _boardView = boardView;
             _removeItemRule = removeItemRule;
-            _removeItemAnimation = removeItemAnimation;
+            _removeItemAnimation = itemAnimationFactory.CreateRemoveAnimation();
+            _restoreItemAnimation = itemAnimationFactory.CreateRestoreAnimation();
         }
 
         internal BoardCell LastRemovedItemCell => _lastRemovedItemCell;
@@ -53,6 +55,8 @@ namespace Agava.Merge2UIView
             
             _board.Add(_lastRemovedItem, _lastRemovedItemCell.Coordinate);
             _boardView.Render(_lastRemovedItemCell);
+            
+            _restoreItemAnimation.Play(_lastRemovedItemCell.Item);
             
             _lastRemovedItem = _nullableItem;
             _lastRemovedItemCell = null;

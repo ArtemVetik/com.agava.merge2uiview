@@ -6,19 +6,28 @@ using UnityEngine;
 
 namespace Agava.Merge2UIView.Samples
 {
-    [CreateAssetMenu(menuName = "Merge2/ItemTrash/Create SimpleRemoveItemAnimationFactory", fileName = "SimpleRemoveItemAnimationFactory", order = 56)]
-    public class SimpleRemoveItemAnimationFactory : RemoveItemAnimationFactory
+    [CreateAssetMenu(menuName = "Merge2/ItemTrash/Create SimpleItemAnimationFactory", fileName = "SimpleItemAnimationFactory", order = 56)]
+    public class SimpleItemAnimationFactory : ItemAnimationFactory
     {
 #if USE_DOTWEEN
         [SerializeField] private float _duration;
 #endif
         
-        public override IRemoveItemAnimation Create()
+        public override IRemoveItemAnimation CreateRemoveAnimation()
         {
 #if USE_DOTWEEN
             return new DoTweenSimpleRemoveItemAnimation(_duration);
 #else
             return new SimpleRemoveItemAnimation();
+#endif
+        }
+        
+        public override IRestoreItemAnimation CreateRestoreAnimation()
+        {
+#if USE_DOTWEEN
+            return new DoTweenSimpleRestoreItemAnimation(_duration);
+#else
+            return new SimpleRestoreItemAnimation();
 #endif
         }
         
@@ -28,6 +37,11 @@ namespace Agava.Merge2UIView.Samples
             {
                 onComplete?.Invoke();
             }
+        }
+
+        private class SimpleRestoreItemAnimation : IRestoreItemAnimation
+        {
+            public void Play(ItemPresenter itemPresenter) { }
         }
 
 #if USE_DOTWEEN
@@ -45,6 +59,22 @@ namespace Agava.Merge2UIView.Samples
                 itemPresenter.transform
                     .DOScale(Vector3.zero, _duration)
                     .OnComplete(() => onComplete?.Invoke());
+            }
+        }
+
+        private class DoTweenSimpleRestoreItemAnimation : IRestoreItemAnimation
+        {
+            private readonly float _duration;
+            
+            public DoTweenSimpleRestoreItemAnimation(float duration)
+            {
+                _duration = duration;
+            }
+            
+            public void Play(ItemPresenter itemPresenter)
+            {
+                itemPresenter.transform.DOComplete(true);
+                itemPresenter.transform.DOScale(Vector3.one, _duration);
             }
         }
 #endif

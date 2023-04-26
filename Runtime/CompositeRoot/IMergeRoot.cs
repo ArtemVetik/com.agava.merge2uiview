@@ -10,6 +10,7 @@ namespace Agava.Merge2UIView
         CommandFilter CommandFilter { get; }
         OpenedItemList OpenedItemList { get; }
         SelectedItem SelectedItem { get; }
+        ItemProduceInfoViewFactory ItemProduceInfoViewFactory { get; }
         SelectedItemPanel SelectedItemPanel { get; }
     }
 }

@@ -57,7 +57,6 @@ namespace Agava.Merge2UIView.Samples
             }
 
             _info.text = text.ToString();
-
             _rewardText.text = $"Reward: {_reward.RewardValue(_task)}";
         }
 

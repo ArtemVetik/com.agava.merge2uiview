@@ -36,15 +36,21 @@ namespace Agava.Merge2UIView
         {
             foreach (var cell in _cells.Where(cell => cell.Item != null))
             {
-                if (_timeRepository.Items.Contains(cell.Item.Model.Guid) == false)
+                string cellItemGuid = cell.Item.Model.Guid;
+                
+                if (_timeRepository.Items.Contains(cellItemGuid) == false)
                     continue;
 
-                if (_timers.ContainsKey(cell.Item.Model.Guid))
+                if (_timers.TryGetValue(cellItemGuid, out var value) && value != null)
                     continue;
 
                 var timer = Instantiate(_timerTemplate, _timerCanvas.transform);
                 timer.Init(cell.Item, _timeRepository);
-                _timers.Add(cell.Item.Model.Guid, timer);
+
+                if (_timers.ContainsKey(cellItemGuid))
+                    _timers[cellItemGuid] = timer;
+                else
+                    _timers.Add(cellItemGuid, timer);
             }
         }
     }

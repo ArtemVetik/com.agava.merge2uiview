@@ -1,8 +1,8 @@
-using UnityEngine;
 using Agava.Merge2.Tasks;
 using System.Collections.Generic;
 using Agava.Merge2.Core;
 using System;
+using System.Linq;
 
 namespace Agava.Merge2UIView
 {
@@ -31,10 +31,12 @@ namespace Agava.Merge2UIView
                 _taskView.Add(view);
             }
 
+            SetupTargetItems();
             _board.Updated += OnBoardUpdated;
         }
 
         public int Count => _taskList.Tasks.Count;
+        internal HashSet<Item> TargetItems { get; private set; }
 
         public void Dispose()
         {
@@ -49,6 +51,8 @@ namespace Agava.Merge2UIView
             _taskView.Add(view);
 
             _taskListSave.Save(_taskList);
+            
+            SetupTargetItems();
         }
 
         public void Remove(Task task)
@@ -67,15 +71,22 @@ namespace Agava.Merge2UIView
             _taskList.Complete(view.Model);
             _taskView.Remove(view);
             UnityEngine.Object.Destroy(view.gameObject);
-
+            
             _boardView.Render(_boardView.Cells[0]);
             _taskListSave.Save(_taskList);
+            
+            SetupTargetItems();
         }
 
         private void OnBoardUpdated()
         {
             foreach (var view in _taskView)
                 view.Render();
+
+            SetupTargetItems();
         }
+
+        private void SetupTargetItems() 
+            => TargetItems = _taskList.Tasks.SelectMany(task => task.TotalItems).ToHashSet();
     }
 }

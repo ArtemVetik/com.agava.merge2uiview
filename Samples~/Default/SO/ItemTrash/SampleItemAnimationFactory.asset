@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38f9d6cd3b9d41c2b2be07dc52168ae2, type: 3}
-  m_Name: SampleRemoveItemAnimationFactory
+  m_Name: SampleItemAnimationFactory
   m_EditorClassIdentifier: 
   _duration: 0.3

@@ -37,6 +37,7 @@ namespace Agava.Merge2UIView
         public CommandFilter CommandFilter { get; private set; }
         public SelectedItem SelectedItem { get; private set; }
         public SelectedItemPanel SelectedItemPanel { get; private set; }
+        public ItemProduceInfoViewFactory ItemProduceInfoViewFactory { get; private set; }
         public OpenedItemList OpenedItemList => _openedItemListPresenter.OpenedItemList;
 
         public void Compose()
@@ -68,11 +69,10 @@ namespace Agava.Merge2UIView
             var clickPolicy = new ClickPolicy(Board, _gameRules.ClickCommands(Board));
 
             CommandFilter = new CommandFilter(_gameRules.ClickCommands(Board).ToDictionary(item => item.Item1, item => item.Item2));
-            var itemProduceInfo = new ItemProduceInfo(CommandFilter);
-            var itemProduceInfoViewFactory = new ItemProduceInfoViewFactory(_itemProduceInfoView, itemProduceInfo, _openedItemListPresenter.OpenedItemList);
+            ItemProduceInfoViewFactory = new ItemProduceInfoViewFactory(_itemProduceInfoView, new ItemProduceInfo(CommandFilter), _openedItemListPresenter.OpenedItemList);
 
             SelectedItemPanel = Instantiate(_selectedItemPanelTemplate);
-            SelectedItemPanel.Init(itemProduceInfoViewFactory);
+            SelectedItemPanel.Init(ItemProduceInfoViewFactory);
 
             SelectedItem = new SelectedItem(Instantiate(_cellFrameTemplate), SelectedItemPanel);
             var moveInput = new MoveInput(BoardView, movePolicy, mergePolicy, _mergeAnimationFactory.Create());

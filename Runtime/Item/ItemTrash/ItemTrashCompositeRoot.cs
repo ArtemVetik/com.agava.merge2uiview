@@ -8,7 +8,7 @@ namespace Agava.Merge2UIView
         [SerializeField] private RemovedItemRewardTarget _rewardTarget;
         [SerializeField] private RemovedItemRewardList _rewardList;
         [SerializeField] private RemoveItemRule _removeItemRule;
-        [SerializeField] private RemoveItemAnimationFactory _removeItemAnimationFactory;
+        [SerializeField] private ItemAnimationFactory _itemAnimationFactory;
 
         private ItemTrashPresenter _itemTrashPresenter;
 
@@ -16,7 +16,7 @@ namespace Agava.Merge2UIView
         {
             _rewardTarget.Initialize(_rewardList);
             
-            var itemTrash = new ItemTrash(_removeItemRule, _removeItemAnimationFactory.Create(), mergeRoot.Board, mergeRoot.BoardView);
+            var itemTrash = new ItemTrash(_removeItemRule, _itemAnimationFactory, mergeRoot.Board, mergeRoot.BoardView);
             var removeItemToggleFactory = new RemoveItemToggleFactory(_removeItemToggleTemplate, _rewardList,
                 mergeRoot.SelectedItemPanel.ContentContainer);
             
